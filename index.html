@@ -3,15 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="images/lock.png" type="image/png">
     <title>Cyber Security Portfolio</title>
 </head>
+<script>// Smooth scroll to anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Fade in page content when it is scrolled into view
+document.addEventListener('scroll',
+    function () {
+        let value = window.scrollY;
+
+        document.querySelectorAll('.fade-in').forEach(fadeInElement => {
+            let elementTop = fadeInElement.getBoundingClientRect().top;
+
+            if (elementTop < (window.innerHeight / 2)) {
+                fadeInElement.style.opacity = 1;
+            }
+        });
+    });
+
+// Animate skills progress bars
+document.addEventListener('scroll', function () {
+    let value = window.scrollY;
+
+    document.querySelectorAll('.skill-progress').forEach(skillProgressElement => {
+        let elementTop = skillProgressElement.getBoundingClientRect().top;
+
+        if (elementTop < (window.innerHeight / 1.5)) {
+            skillProgressElement.style.width = skillProgressElement.dataset.percent + '%';
+        }
+    });
+});
+
+// Animate project cards when they are scrolled into view
+document.addEventListener('scroll', function () {
+    let value = window.scrollY;
+
+    document.querySelectorAll('.card').forEach(cardElement => {
+        let elementTop = cardElement.getBoundingClientRect().top;
+
+        if (elementTop < (window.innerHeight / 1.5)) {
+            cardElement.style.transform = 'translateY(0)';
+            cardElement.style.opacity = 1;
+        }
+    });
+});</script>
 <body>
 <!-- navbar start -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Cyber Security Portfolio</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -35,7 +85,7 @@
 </nav>
 <!-- navbar end -->
 <!-- introduction start -->
-<div class="jumbotron jumbotron-fluid bg-dark text-light">
+<div class="jumbotron jumbotron-fluid bg-light text-dark">
     <div class="container">
         <h1 class="display-4">Welcome to my Cyber Security Portfolio</h1>
         <p class="lead">I am a cyber security student with a passion for protecting against online threats and vulnerabilities. In this portfolio, you can learn more about my skills and experience, as well as view some of my projects.</p>
@@ -43,16 +93,17 @@
 </div>
 <!-- introduction end -->
 <!-- about start -->
-<div class="container" id="about">
-    <h2 class="text-center mb-5 mt-5">About Me</h2>
+<div class="container mt-5" id="about">
+    <h2 class="text-center mb-5">About Me</h2>
     <div class="row">
-        <div class="col-md-4
-      </div>
-      <div class="col-md-8">
-        <p>I am currently pursuing a degree in cyber security and have a strong interest in protecting against online threats and vulnerabilities. I have gained valuable experience through coursework and internships, and am always looking for new opportunities to learn and grow in this field.</p>
-        <p>In my free time, I enjoy staying up to date on the latest cyber security news and trends, and enjoy participating in online hackathons and coding challenges. I am also an avid reader and enjoy learning about new technologies and their potential impact on the field of cyber security.</p>
+        <div class="col-md-4">
+            <img src="images/me.png" alt="profile picture" class="img-fluid rounded-circle mb-3">
+        </div>
+        <div class="col-md-8">
+            <p>I am currently pursuing a degree in cyber security and have a strong interest in protecting against online threats and vulnerabilities. I have gained valuable experience through coursework and internships, and am always looking for new opportunities to learn and grow in this field.</p>
+            <p>In my free time, I enjoy staying up to date on the latest cyber security news and trends, and enjoy participating in online hackathons and coding challenges. I am also an avid reader and enjoy learning about new technologies and their potential impact on the field of cyber security.</p>
+        </div>
     </div>
-</div>
 </div>
 <!-- about end -->
 <!-- skills start -->
@@ -63,22 +114,14 @@
             <ul>
                 <li>Network security</li>
                 <li>Penetration testing</li>
-                <li>Vulnerability assessment</li>
-                <li>Cryptography</li>
-                <li>Cybersecurity regulations and compliance</li>
-                <li>Firewall configuration</li>
-                <li>Incident response</li>
-                <li>Security operations</li>
+                <li>
             </ul>
         </div>
         <div class="col-md-6">
             <ul>
-                <li>Web application security</li>
-                <li>Mobile security</li>
-                <li>Identity and access management</li>
-                <li>Risk assessment and management</li>
-                <li>Data privacy</li>
-                <li>Information security governance</li>
+                <li>Cryptography</li>
+                <li>Web security</li>
+                <li>
             </ul>
         </div>
     </div>
@@ -90,47 +133,47 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card mb-4">
-                <img src="images/py3.png" class="card-img-top" alt="project 1">
+                <img src="images/ciscoPT.png" alt="project 1" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Project 1</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan, metus ac elementum accumsan, quam nibh pharetra quam, in aliquet enim velit at dui.</p>
-                    <a href="#" class="btn btn-primary">View project</a>
+                    <p class="card-text">Description of project 1 goes here</p>
+                    <a href="#" class="btn btn-primary">Learn more</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card mb-4">
-                <img src="images/pihole.jpeg" class="card-img-top" alt="project 2">
+                <img src="images/pihole.jpeg" alt="project 2" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Project 2</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan, metus ac elementum accumsan, quam nibh pharetra quam, in aliquet enim velit at dui.</p>
-                    <a href="#" class="btn btn-primary">View project</a>
+                    <p class="card-text">Description of project 2 goes here</p>
+                    <a href="#" class="btn btn-primary">Learn more</a>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card mb-4">
-                <img src="images/ciscoPT.png" class="card-img-top" alt="project 3">
+                <img src="images/py3.png" alt="project 3" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Project 3</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan, metus ac elementum accumsan, quam nibh pharetra quam, in aliquet enim
-                        <a href="#" class="btn btn-primary">View project</a>
+                    <p class="card-text">Description of project 3 goes here</p>
+                    <a href="#" class="btn btn-primary">Learn more</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
 <!-- projects end -->
 <!-- footer start -->
-<footer class="bg-dark text-light py-3 mt-5">
+<footer class="bg-light py-5 mt-5">
     <div class="container">
-        <p class="text-center mb-0">Copyright &copy; 2022 Cyber Security Portfolio</p>
+        <p class="text-center mb-0">Copyright &copy; 2021 Cyber Security Portfolio</p>
     </div>
 </footer>
 <!-- footer end -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@bootstrapstudio/bootstrap-better-nav/dist/bootstrap-better-nav.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
 
